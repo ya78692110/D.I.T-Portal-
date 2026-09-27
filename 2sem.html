@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Semester Details | D.I.T Portal</title>
+    <style>
+        /* Global Styles & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #061311;
+            color: #ecfdf5;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Modern Clean Navigation Bar */
+        nav {
+            background: #09201c;
+            padding: 0.9rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            z-index: 1000;
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 50px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: #34d399;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #a7f3d0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(52, 211, 153, 0.1);
+            border-color: #34d399;
+            color: #34d399;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10rem 2rem 4rem 2rem;
+            width: 100%;
+        }
+
+        .semester-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .semester-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+            letter-spacing: -1px;
+        }
+
+        .semester-header h1 span {
+            color: #34d399;
+        }
+
+        .semester-header p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Subjects Cards Grid */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        .subject-card {
+            background-color: #09201c;
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 14px;
+            padding: 1.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s ease;
+        }
+
+        .subject-card:hover {
+            border-color: rgba(52, 211, 153, 0.5);
+        }
+
+        .subject-info h3 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 0.2rem;
+            font-weight: 700;
+        }
+
+        .subject-info p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Download Button Style */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            background: #10b981;
+            border: none;
+            color: #061311;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background: #059669;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #09201c;
+            text-align: center;
+            padding: 1.8rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        footer a {
+            color: #34d399;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                width: 95%;
+                padding: 0.8rem 1.5rem;
+                top: 10px;
+                border-radius: 14px;
+            }
+
+            .container {
+                padding: 9rem 1.2rem 3rem 1.2rem;
+            }
+
+            .subject-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+            }
+
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .semester-header h1 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">D.I.T <span>Portal</span></div>
+        <a href="index.html" class="back-btn">&larr; Back to Home</a>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <div class="semester-header">
+            <h1>2nd <span>Semester</span></h1>
+            <p>Download notes and PDFs for all subjects of the 2nd semester from here.</p>
+        </div>
+
+        <div class="subjects-grid">
+            <!-- Subject 1 -->
+            <div class="subject-card">
+                <div class="subject-info">
+                    <h3>MS Access</h3>
+                </div>
+                <a href="MsAccess2007.pdf" download class="download-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <!-- Subject 2 -->
+            <div class="subject-card">
+                <div class="subject-info">
+                    <h3>Computer Hardware</h3>
+                </div>
+                <a href="computerHardware.pdf" download class="download-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <!-- Subject 3 -->
+            <div class="subject-card">
+                <div class="subject-info">
+                    <h3>Computer Network</h3>
+                </div>
+                <a href="ComputerNetwork.pdf" download class="download-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <!-- Subject 4 -->
+            <div class="subject-card">
+                <div class="subject-info">
+                    <h3>Inpage </h3>
+                </div>
+                <a href="inpage2000.pdf" download class="download-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download PDF
+                </a>
+            </div>
+	
+	 <!-- Subject 5 -->
+            <div class="subject-card">
+                <div class="subject-info">
+                    <h3>Photoshop</h3>
+                </div>
+                <a href="Photoshop.pdf" download class="download-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download PDF
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>PDFs provided on this site are sourced from <a href="https://ditnotes4all.blogspot.com" target="_blank">Syed Anis Sherazi</a>. All credits go to the original creators.</p>
+    </footer>
+
+</body>
+</html>

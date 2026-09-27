@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.I.T Comprehensive Portal | Diploma in IT</title>
+    <style>
+        /* Global Styles & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #061311;
+            color: #ecfdf5;
+            line-height: 1.7;
+        }
+
+        /* Modern Clean Navigation Bar */
+        nav {
+            background: #09201c;
+            padding: 0.9rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            z-index: 1000;
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 50px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: #34d399;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #a7f3d0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #34d399;
+        }
+
+        /* Menu Toggle Button - Default Hidden */
+        .menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #ffffff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10rem 8% 4rem 8%;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 850px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background: rgba(52, 211, 153, 0.08);
+            border: 1px solid rgba(52, 211, 153, 0.25);
+            color: #34d399;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 30px;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-section h2 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .hero-section h2 span {
+            color: #34d399;
+        }
+
+        .hero-desc {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            background: #10b981;
+            border: none;
+            color: #061311;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .hero-btn:hover {
+            background: #059669;
+            color: #ffffff;
+        }
+
+        /* Combined Sections */
+        .big-section {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 5%;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .big-section h2 {
+            font-size: 2.8rem;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+        }
+
+        .big-section h2 span {
+            color: #34d399;
+        }
+
+        .section-desc {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin-bottom: 3rem;
+        }
+
+        /* Side-by-Side Semesters Container */
+        .semesters-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 1rem;
+        }
+
+        /* Individual Semester Card */
+        .semester-card {
+            background-color: #09201c;
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 14px;
+            padding: 2.2rem 2rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.2s ease;
+        }
+
+        .semester-card:hover {
+            border-color: rgba(52, 211, 153, 0.5);
+        }
+
+        .semester-card h3 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+        }
+
+        .semester-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Subject List */
+        .subject-list {
+            list-style-type: disc;
+            list-style-position: inside;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            padding-left: 0.4rem;
+        }
+
+        .subject-list li {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        /* Detail Button */
+        .detail-btn {
+            display: inline-block;
+            text-align: center;
+            padding: 0.7rem 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #ecfdf5;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .detail-btn:hover {
+            background: rgba(52, 211, 153, 0.1);
+            border-color: #34d399;
+            color: #34d399;
+        }
+
+        /* About Me Section Layout (Background & Border Removed) */
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2.5rem;
+            background: transparent;
+            border: none;
+            padding: 1rem;
+            max-width: 1000px;
+            width: 100%;
+            text-align: left;
+            align-items: center;
+        }
+
+        .about-profile-card {
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Profile Image Setup */
+        .about-profile-card img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #34d399;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+
+        .about-content-box h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .about-content-box p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-email {
+            display: inline-block;
+            color: #34d399;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+
+        .about-email:hover {
+            text-decoration: underline;
+        }
+
+        /* Assets Big Section */
+        .big-section.assets {
+            min-height: 80vh;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .file-card {
+            background-color: #09201c;
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .file-card:hover {
+            border-color: #34d399;
+            transform: translateY(-3px);
+        }
+
+        .file-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .file-desc {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Themed Footer */
+        footer {
+            background-color: #09201c;
+            border-top: 1px solid rgba(16, 185, 129, 0.15);
+            padding: 2.5rem 5%;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        footer p span {
+            color: #34d399;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                width: 95%;
+                padding: 0.8rem 1.5rem;
+                top: 10px;
+                border-radius: 14px;
+            }
+
+            nav .menu-toggle {
+                display: flex !important;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #09201c;
+                padding: 1.2rem 0;
+                text-align: center;
+                border: 1px solid rgba(16, 185, 129, 0.2);
+                border-radius: 14px;
+                margin-top: 8px;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-section {
+                padding: 9rem 5% 3rem 5%;
+            }
+
+            .hero-section h2 {
+                font-size: 2.3rem;
+            }
+
+            .big-section h2 {
+                font-size: 2.1rem;
+            }
+
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+            
+            .about-content-box h2 {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav>
+        <div class="logo">D.I.T <span>Portal</span></div>
+        
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#semesters" onclick="toggleMenu()">Semesters</a></li>
+            <li><a href="#assets" onclick="toggleMenu()">Assets</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section with Welcome Style Subtext -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <span class="hero-badge">Yasir alee </span>
+            <h2>Diploma in <span>Information Technology</span></h2>
+            <p class="hero-desc">Welcome to your ultimate digital learning hub! Explore structured D.I.T course notes, essential semester resources, and development assets built to power your tech journey.</p>
+            <div class="hero-btn-group">
+                <a href="#semesters" class="hero-btn">Explore Semesters &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Semesters Section -->
+    <section id="semesters" class="big-section">
+        <h2>D.I.T <span>Semesters</span></h2>
+        <p class="section-desc">Access notes for all subjects across first and second years here.</p>
+        
+        <div class="semesters-container">
+            <!-- 1st Semester Card -->
+            <div class="semester-card">
+                <div>
+                    <h3>1st Semester</h3>
+                    <p>Fundamental computer concepts and programming files.</p>
+                    <ul class="subject-list">
+                        <li>ICT Notes</li>
+                        <li>C Programming</li>
+                        <li>Operating System</li>
+                        <li>Office Automation</li>
+                    </ul>
+                </div>
+                <a href="1sem.html"  class="detail-btn">View Semester Details &rarr;</a>
+            </div>
+
+            <!-- 2nd Semester Card -->
+            <div class="semester-card">
+                <div>
+                    <h3>2nd Semester</h3>
+                    <p>Advanced database, networking, and hardware files.</p>
+                    <ul class="subject-list">
+                        <li>MS Access</li>
+                        <li>Computer Hardware</li>
+                        <li>Computer Network</li>
+                        <li>Inpage & Photoshop</li>
+                    </ul>
+                </div>
+                <a href="2sem.html"  class="detail-btn">View Semester Details &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assets Section -->
+    <section id="assets" class="big-section assets">
+        <h2>Assets<span> & Learning Hub</span></h2>
+        <p class="section-desc">Great links and guides to help you learn subjects related to your 1st and 2nd semesters.</p>
+        
+        <div class="button-grid">
+            <a href="https://www.w3schools.com/html/" target="_blank" class="file-card">
+                <span class="file-title">HTML & CSS Learning</span>
+                <span class="file-desc">Official reference to learn web design basics and color codes.</span>
+            </a>
+            <a href="https://www.learn-c.org/" target="_blank" class="file-card">
+                <span class="file-title">C Programming Hub</span>
+                <span class="file-desc">Practice with 10 core programs and C language tutorials.</span>
+            </a>
+            <a href="https://support.microsoft.com/en-us/office" target="_blank" class="file-card">
+                <span class="file-title">MS Office & Access Guide</span>
+                <span class="file-desc">Complete documentation for Word, Excel, and Access databases.</span>
+            </a>
+            <a href="https://www.netacad.com/courses/packet-tracer" target="_blank" class="file-card">
+                <span class="file-title">Networking (Cisco)</span>
+                <span class="file-desc">Tutorials related to Packet Tracer and network topologies.</span>
+            </a>
+            <a href="https://helpx.adobe.com/photoshop/tutorials.html" target="_blank" class="file-card">
+                <span class="file-title">Adobe Photoshop Guide</span>
+                <span class="file-desc">Tutorials for graphics designing, banners, and photo editing.</span>
+            </a>
+            <a href="https://archive.org/details/inpage-urdu-software" target="_blank" class="file-card">
+                <span class="file-title">InPage Urdu Typography</span>
+                <span class="file-desc">Guides for Urdu composing, keyboard shortcuts, and layout designing.</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="big-section">
+        <div class="about-wrapper">
+            <div class="about-profile-card">
+                <img src="teach.png" alt="Yasir Alee Profile Picture">
+            </div>
+            <div class="about-content-box">
+                <h2>Yasir Alee</h2>
+                <p>
+                   I am an I.T student and have completed my Diploma in I.T. The purpose of building this project is to help my incoming junior friends.
+                </p>
+                <p>
+                    On this website, you will find files related to the 1st & 2nd semesters, along with useful links for their representative subjects.
+                </p>
+                <a href="mailto:ya78692110@gmail.com" class="about-email">ya78692110@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themed Footer -->
+    <footer>
+        <p>&copy; 2026 D.I.T Student Portal. Designed by <span>Yasir Alee</span>.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
